@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .base_page import BasePage
+from pages.base_page import BasePage
 from .locators import NewsPageLocators
 
 class NewsPage(BasePage):
@@ -34,3 +34,6 @@ class NewsPage(BasePage):
         if self._news_list != new_news_list:
             return True
         return False
+        
+        
+        
