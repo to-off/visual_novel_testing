@@ -34,6 +34,6 @@ class NewsPageInMain(BasePage):
         
         
 class NewsPage(NewsPageInMain):
-    def go_to_main_page(self):
+    	def go_to_main_page(self):
         ref_main_page = self.browser.find_element(*NewsPageLocators.MAIN)
         ref_main_page.click()     
