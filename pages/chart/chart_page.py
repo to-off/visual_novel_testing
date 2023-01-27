@@ -1,29 +1,38 @@
-from .base_page import BasePage
+from pages.chart.general_func import GeneralFunction
 from .locators import ChartPageLocators
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 
+class ChartPage(GeneralFunction):
+    def go_to_novel_page_by_btn(self, title_num):
+        novels_btn_list = self.browser.find_elements(*ChartPageLocators.BTNS_LOCATOR)
+        novels_btn_list[title_num].click()
+        
+    def go_to_novel_page_by_img(self, title_num):
+        novels_img_list = self.browser.find_elements(*ChartPageLocators.IMGS_LOCATOR)
+        novels_img_list[title_num].click()
 
-class ChartPage(BasePage):
-    def go_to_main_page(self):
-        main = self.browser.find_element(*ChartPageLocators.MAIN)
-        main.click()
-    def go_to_chart_page(self):
-        chart_main = self.browser.find_element(*ChartPageLocators.CHART_MAIN)
-        chart_main.click()
-    def go_to_novel_page(self, title):
-        detailed = self.browser.find_element(By.CSS_SELECTOR, "[title='{0}']~.p-main-vn-links > .btn-primary".format(title))
-        detailed.click()
-    def sort_by(self, sorting_type):
-        sorting = self.browser.find_element(By.CSS_SELECTOR, "[href$='{0}']".format(sorting_type))
-        sorting.click()
-    def filter_by(self, filt_by, filt_type):
-        dropdown_lists = self.browser.find_element(By.CSS_SELECTOR, "div.col-lg-12>div>div>.dropdown-toggle")
-        for el in dropdown_lists:
-            if el.text() == filter_by:
-                el.click()
-        f_lists = self.browser.find_element(By.CSS_SELECTOR, ".open li a")
-        for el in f_lists:
-            if el.text() == filter_type:
-                el.click()
-    
+    def sort_by(self, sorting_type_num):
+        sorting_list = self.browser.find_elements(*ChartPageLocators.SORTING_LOCATOR)
+        sorting_list[sorting_type_num].click()
+        
+    def filter_by(self, filter_num, filter_type_num):
+        dropdown_list = self.browser.find_elements(*ChartPageLocators.FILTER_LOCATOR)
+        dropdown_list[filter_num].click()
+        ftype_list = self.browser.find_elements(*ChartPageLocators.DD_ELEMS_LOCATOR)
+        ftype_list[filter_type_num].click()
+        
+    def get_sort_menu(self):
+        sorting_list = self.browser.find_elements(*ChartPageLocators.SORTING_LOCATOR)
+        sort_menu = [x.text for x in sorting_list if len(x.text) > 0]
+        return sort_menu
+        
+    def get_filter_menu(self):
+        dropdown_list = self.browser.find_elements(*ChartPageLocators.FILTER_LOCATOR)
+        filter_menu = [x.text for x in dropdown_list if len(x.text) > 0]
+        return filter_menu
+        
+    def get_filter_types(self, filter_num):
+        dropdown_list = self.browser.find_elements(*ChartPageLocators.FILTER_LOCATOR)
+        dropdown_list[filter_num].click()
+        ftype_list = self.browser.find_elements(*ChartPageLocators.DD_ELEMS_LOCATOR)
+        type_list = [x.text for x in ftype_list if len(x.text) > 0]
+        return type_list
