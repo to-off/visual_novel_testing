@@ -7,3 +7,5 @@ ENV/
 .idea/
 visual_novel_env/
 
+# Byte-compiled
+__pycache__/

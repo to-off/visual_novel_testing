@@ -1,6 +1,5 @@
 from pages.browser_func import BrowserFunction
 from pages.locators import NavBarLocators
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 '''
 Тут находится общий функционал, присутствующий почти на всех страницах:
@@ -15,11 +14,6 @@ class NavBar(BrowserFunction):
     def user_is_authorized(self):
         self.is_element_present(*NavBarLocators.EXIT)
         self.is_element_present(*NavBarLocators.ACCOUNT)
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 736e5de4e362315f7f0039752320f24920c94c20
     def main_page(self):
         ref = self.browser.find_element(*NavBarLocators.MAIN)
         ref.click()

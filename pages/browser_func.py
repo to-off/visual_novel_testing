@@ -13,6 +13,13 @@ class BrowserFunction:
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+    def is_visibility(self, how, what, time=5):
+        try:
+            WebDriverWait(self.browser, time).until(EC.visibility_of_all_elements_located((how, what)))
+        except TimeoutException:
+            return False
+        return True
+
     def is_element_present(self, how, what, time=5):
         try:
             WebDriverWait(self.browser, time).until(EC.presence_of_element_located((how, what)))

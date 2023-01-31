@@ -18,7 +18,7 @@ class TestCaseForMain:
             response = requests.get(url, headers=header)
             assert response.status_code == 200, f'Failed url: {url}'
 
-    def test_go_to_news_post(self, browser):
+    def test_ref_in_site_map(self, browser):
         link = 'https://vn-russian.ru/'
         page = MainPage(browser, link)
         page.open()
