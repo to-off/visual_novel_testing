@@ -45,7 +45,6 @@ class NavBar(BrowserFunction):
         ref.click()
 
 
-
 class GeneralFunction(NavBar):
     def go_to_main_page(self):
         main = self.browser.find_element(By.CSS_SELECTOR, "div>h3>a:first-of-type")
