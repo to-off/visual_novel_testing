@@ -21,13 +21,13 @@ class NewsPageInMain(BrowserFunction):
         news_post.click()
 
     def is_news_post_present(self, number):
-        assert self.find_element(*NewsPageLocators.NEWS_POST(number)), f"News post number {number} is not exists"
+        assert self.is_element_present(*NewsPageLocators.NEWS_POST(number)), f"News post number {number} is not exists"
 
     def is_news_list_present(self):
-        assert self.find_elements(*NewsPageLocators.NEWS_LIST), "News list is not find"
+        assert self.is_elements_present(*NewsPageLocators.NEWS_LIST), "News list is not find"
 
     def is_news_page_navbar_present(self):
-        assert self.find_elements(*NewsPageLocators.PAGINATION_NEWS), "Pagination news is not find"
+        assert self.is_elements_present(*NewsPageLocators.PAGINATION_NEWS), "Pagination news is not find"
 
 
 class NewsPage(NewsPageInMain):

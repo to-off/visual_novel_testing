@@ -20,13 +20,13 @@ class MainPage(NewsPageInMain):
         ref.click()
 
     def is_site_map_is_present(self):
-        assert self.find_element(*MainPageLocators.SITE_MAP), "Site map is not presented!"
+        assert self.is_element_present(*MainPageLocators.SITE_MAP), "Site map is not presented!"
 
     def is_site_map_ref_accessible(self):
-        assert self.find_elements(*MainPageLocators.REFERENCES_SITE_MAP), "References in site map is not presented!"
+        assert self.is_elements_present(*MainPageLocators.REFERENCES_SITE_MAP), "References in site map is not presented!"
 
     def is_title_main_page_present(self):
-        assert self.find_element(*MainPageLocators.TITLE_PAGE)
+        assert self.is_element_present(*MainPageLocators.TITLE_PAGE)
 
 
 
