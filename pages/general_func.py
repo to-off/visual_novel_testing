@@ -1,6 +1,11 @@
 from pages.browser_func import BrowserFunction
 from pages.locators import NavBarLocators
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium import webdriver
 '''
 Тут находится общий функционал, присутствующий почти на всех страницах:
 1. Переход на главное меню осуществляется почти со всех страниц
