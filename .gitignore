@@ -10,3 +10,4 @@ visual_novel_env/
 # Byte-compiled
 __pycache__
 tests/__pycache__
+*/__pycache__/
