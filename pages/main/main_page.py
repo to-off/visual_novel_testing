@@ -1,6 +1,5 @@
 from locators import MainPageLocators
-from pages.base_page import BasePage
-from news.news_page import NewsPageInMain
+from pages.news.news_page import NewsPageInMain
 
 class MainPage(NewsPageInMain):
     def is_visibility(self):
@@ -10,7 +9,7 @@ class MainPage(NewsPageInMain):
         assert self.is_find_elements(*MainPageLocators.REFERENCES_SITE_MAP), "Href in site map is not presented!"
     
     def get_refs(self):
-	ref = self.browser.find_elements(*MainPageLocators.REFERENCES_SITE_MAP)
-	href = [el.get_attribute('href') for el in ref]
-	return href
+        ref = self.browser.find_elements(*MainPageLocators.REFERENCES_SITE_MAP)
+        href = [el.get_attribute('href') for el in ref]
+        return href
         
