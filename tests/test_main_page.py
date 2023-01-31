@@ -25,7 +25,7 @@ class TestCaseForMain:
         link = 'https://vn-russian.ru/'
         page = MainPage(browser, link)
         page.open()
-        page.should_be_main_page()
+        page.is_site_map_is_present()
         is_status_code_200_url(page.get_refs_site_map())
 
     def test_chang_news_list_page(self, browser, page_site, page_news_list):
@@ -40,10 +40,17 @@ class TestCaseForMain:
             new_news_list = page.get_news_list()
             is_object_list_dif(news_list, new_news_list)
 
-    @pytest.mark.parametrize('page_site', [(MainPage, ''), (NewsPage, 'news/all')])
-    def test_back_to_news_from_news_post(self, browser, page_site):
-        link = 'https://vn-russian.ru/' + page_site[1]
-        page = page_site[0](browser, link)
+    def test_back_to_main_from_news_post(self, browser):
+        link = 'https://vn-russian.ru/'
+        page = MainPage(browser, link)
+        page.open()
+        page.go_news_post(1)
+        news_post_page = NewsPostPage(page.browser)
+        news_post_page.go_to_main_page()
+
+    def test_back_to_news_from_news_post(self, browser):
+        link = 'https://vn-russian.ru/news/all'
+        page = NewsPage(browser, link)
         page.open()
         page.go_news_post(1)
         news_post_page = NewsPostPage(page.browser)
