@@ -8,4 +8,5 @@ ENV/
 visual_novel_env/
 
 # Byte-compiled
-__pycache__/
+__pycache__
+tests/__pycache__

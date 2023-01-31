@@ -25,10 +25,12 @@ class TestCaseForMain:
         page.should_be_main_page()
         self.test_status_code_200_for_url(page.get_refs_site_map())
 
-    @pytest.mark.parametrize('page_site', [(MainPage, ''), (NewsPage, 'news/all')])
+    @pytest.mark.parametrize('page_site', [(NewsPage, 'news/all')])
     @pytest.mark.parametrize('page_news_list', [
         pytest.param(1, marks=pytest.mark.xfail(reason="We start with '1' page =>  news list don't change")),
         2,
+        3,
+        4,
         pytest.param(5, marks=pytest.mark.xfail(reason="This page is not exists"))])
     def test_chang_news_list_page(self, browser, page_site, page_news_list):
         link = 'https://vn-russian.ru/' + page_site[1]
