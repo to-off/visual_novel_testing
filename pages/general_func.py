@@ -9,11 +9,13 @@ from selenium.webdriver.common.by import By
 Если на вашей странице нет перехода на главную (кроме navbar), то наследуйтесь сразу от класса BrowserFunction
 '''
 
+
 class NavBar(BrowserFunction):
 
     def user_is_authorized(self):
-        self.find_element(*NavBarLocators.EXIT)
-        self.find_element(*NavBarLocators.ACCOUNT)
+        self.is_element_present(*NavBarLocators.EXIT)
+        self.is_element_present(*NavBarLocators.ACCOUNT)
+        
     def main_page(self):
         ref = self.browser.find_element(*NavBarLocators.MAIN)
         ref.click()
@@ -43,7 +45,6 @@ class NavBar(BrowserFunction):
         self.user_is_authorized()
         ref = self.browser.find_element(*NavBarLocators.EXIT)
         ref.click()
-
 
 
 class GeneralFunction(NavBar):
