@@ -15,11 +15,7 @@ class NavBar(BrowserFunction):
     def user_is_authorized(self):
         self.is_element_present(*NavBarLocators.EXIT)
         self.is_element_present(*NavBarLocators.ACCOUNT)
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 736e5de4e362315f7f0039752320f24920c94c20
     def main_page(self):
         ref = self.browser.find_element(*NavBarLocators.MAIN)
         ref.click()
