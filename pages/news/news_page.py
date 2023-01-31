@@ -15,6 +15,9 @@ class NewsPageInMain(BrowserFunction):
         self.is_news_list_present()
         return WebDriverWait(self.browser, 5).until(EC.presence_of_all_elements_located(NewsPageLocators.NEWS_LIST))
 
+    def get_pagination_news(self):
+        return self.browser.find_elements(*NewsPageLocators.PAGINATION_NEWS)
+
     def go_news_post(self, number):
         self.is_news_post_present(number)
         news_post = self.browser.find_element(*NewsPageLocators.NEWS_POST(number))

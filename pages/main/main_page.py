@@ -1,4 +1,4 @@
-from .locators import MainPageLocators
+from pages.main.locators import MainPageLocators
 from pages.news.news_page import NewsPageInMain
 
 

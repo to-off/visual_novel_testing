@@ -4,6 +4,7 @@ from .locators import NewsPostPageLocators
 
 class NewsPostPage(GeneralFunction):
     def go_to_news_page(self):
+        self.is_element_present(*NewsPostPageLocators.NEWS)
         ref_main_page = self.browser.find_element(*NewsPostPageLocators.NEWS)
         ref_main_page.click() 
         
