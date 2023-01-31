@@ -44,6 +44,7 @@ class TestCaseForMain:
         link = 'https://vn-russian.ru/'
         page = MainPage(browser, link)
         page.open()
+        page.is_news_post_present(1)
         page.go_news_post(1)
         news_post_page = NewsPostPage(page.browser)
         news_post_page.go_to_main_page()
@@ -52,6 +53,7 @@ class TestCaseForMain:
         link = 'https://vn-russian.ru/news/all'
         page = NewsPage(browser, link)
         page.open()
+        page.is_news_post_present(1)
         page.go_news_post(1)
         news_post_page = NewsPostPage(page.browser)
         news_post_page.go_to_news_page()
